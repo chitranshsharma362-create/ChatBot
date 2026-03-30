@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Chatbot</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #163d4d;
+            color: white;
+        }
+
+        .chatbox {
+            height: 90vh;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 40%;
+            
+        }
+
+        .user {
+            background: #3b82f6;
+            margin-left: auto;
+        }
+
+        .bot {
+            background: #1e293b;
+        }
+
+        .input-area {
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            margin-bottom: 50px;
+            padding: 5px;
+            width: 100%;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 50px;
+        }
+
+        button {
+            padding: 10px;
+            background: #e8f8ff;
+            border: 1px solid black;
+            border-radius: 10px;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="chatbox" id="chatbox"></div>
+
+    <div class="input-area">
+        <input id="input" placeholder="Type message...">
+        <button onclick="send()">Send</button>
+    </div>
+
+    <script>
+        function send() {
+            let input = document.getElementById("input");
+            let text = input.value;
+
+            if (text === "") return;
+
+            addMessage(text, "user");
+
+            let reply = getReply(text);
+            setTimeout(() => {
+                addMessage(reply, "bot");
+            }, 500);
+
+            input.value = "";
+        }
+
+        function addMessage(text, type) {
+            let chatbox = document.getElementById("chatbox");
+            let div = document.createElement("div");
+
+            div.className = "message " + type;
+            div.innerText = text;
+
+            chatbox.appendChild(div);
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+
+        function getReply(input) {
+            input = input.toLowerCase();
+
+            if (input.includes("hi")) return "Hello bhai 👋";
+            if (input.includes("name")) return "Mera naam chatbot hai 😎";
+            if (input.includes("help")) return "Main help kar sakta hu 👍";
+
+            return "Samajh nahi aaya 😅";
+        }
+    </script>
+
+</body>
+
+</html>
