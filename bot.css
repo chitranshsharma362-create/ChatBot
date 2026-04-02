@@ -93,7 +93,7 @@
  .bot {
      background: #444;
      margin-right: auto;
-     border-bottom-left-radius: 5px;
+     border-radius: 50px;
  }
 
  @media (max-width: 576px) {
@@ -118,7 +118,7 @@
 
      #chat-container {
          width: 90%;
-         height: 90vh;
+         height: 85vh;
          padding: 8px;
          margin-bottom: 100px;
          border-radius: 0;
