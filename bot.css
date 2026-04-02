@@ -99,9 +99,9 @@
  @media (max-width: 576px) {
 
      .chat-bar {
-         width: 100%;
+         width: 90%;
          max-width: 100%;
-         border-radius: 0;
+         border-radius: 50px;
          padding: 6px 10px;
          bottom: 0;
      }
@@ -117,8 +117,8 @@
      }
 
      #chat-container {
-         width: 100%;
-         height: 75vh;
+         width: 90%;
+         height: 85vh;
          padding: 8px;
          margin-bottom: 70px;
          border-radius: 0;
