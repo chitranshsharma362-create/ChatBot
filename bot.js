@@ -56,6 +56,11 @@ function sendMessage() {
 
     input.value = "";
 
+    mic.style.display = "block";
+    voco.style.display = "block";
+    send.style.display = "none";
+
+
     chatContainer.scrollTop = chatContainer.scrollHeight;
 
     botReply(text);
@@ -80,8 +85,12 @@ function botReply(userText) {
 
         if (userText.includes("hi") || userText.includes("hello")) {
             response = "Hello bhai 😄";
-        } else if (userText.toLowerCase().includes("kaise ho?") || userText.toLowerCase().includes("How are you?")) {
+        } else if (
+            userText.includes("kaise ho") ||
+            userText.includes("how are you")
+        ) {
             response = "Main mast hu 😎 tu bata.";
+
         } else if (userText.toLowerCase().includes("time")) {
             response = "Abhi time hua hai : " + new Date().toLocaleTimeString();
         } else if (userText.toLowerCase().includes("date")) {
@@ -189,3 +198,69 @@ function botReply(userText) {
 
     }, 1000);
 }
+
+const micBtn = document.getElementById("mic");
+
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+if (SpeechRecognition) {
+    const recognition = new SpeechRecognition();
+
+    recognition.continuous = false;
+    recognition.lang = "en-IN";
+    recognition.interimResults = false;
+
+    micBtn.addEventListener("click", () => {
+        recognition.start();
+    });
+
+    recognition.onresult = function (event) {
+        const speechText = event.results[0][0].transcript;
+
+        input.value = speechText;
+
+        input.dispatchEvent(new Event("input"));
+    };
+
+    recognition.onerror = function (event) {
+        console.log("Error:", event.error);
+    };
+
+} else {
+    alert("Speech Recognition supported nahi hai browser me ❌");
+}
+
+function speakText(text) {
+
+    text = text.replace(/[^\p{L}\p{N}\p{P}\p{Z}]/gu, "");
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    const voices = window.speechSynthesis.getVoices();
+
+    const selectedVoice =
+        
+        voices.find(v => v.lang.includes("hi-IN")) ||   
+        voices.find(v => v.name.includes("Hindi")) ||
+        voices.find(v => v.name.includes("India")) ||   
+        voices[0];
+
+    speech.voice = selectedVoice;
+
+    speech.lang = "en-US";
+    speech.rate = 1.2;   // thoda slow = natural
+    speech.pitch = 1.5;   // thoda expressive
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(speech);
+}
+
+voco.addEventListener("click", () => {
+
+    const messages = document.querySelectorAll(".bot");
+    if (messages.length === 0) return;
+
+    const lastMsg = messages[messages.length - 1].innerText;
+
+    speakText(lastMsg);
+});
