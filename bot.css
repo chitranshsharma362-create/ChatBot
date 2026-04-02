@@ -125,7 +125,8 @@
      }
 
      .message {
-         max-width: 80%;
+         width:fit-content;
+         max-width: 60%;
          font-size: 14px;
      }
 
