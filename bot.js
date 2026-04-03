@@ -95,7 +95,8 @@ function botReply(userText) {
             response = "Abhi time hua hai : " + new Date().toLocaleTimeString();
         } else if (userText.toLowerCase().includes("date")) {
             response = "Aaj ki Date hai : " + new Date().toLocaleDateString();
-        } else if (userText.includes("mausam") || userText.includes("weather")) {
+        } else if (userText.includes("mausam") ||
+                   userText.includes("weather")) {
             response = "Aaj mausam kaafi acha  hai 😄";
         } else if (
             userText.includes("aaj ka din") ||
