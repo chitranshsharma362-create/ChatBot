@@ -155,19 +155,22 @@ function botReply(userText) {
         }
 
         else if (
-            userText.includes("tumhara naam kya hai")
+            userText.includes("tumhara naam kya hai") ||
+            userText.includes("your name?")
         ) {
-            response = "Mera naam abhi tune decide nahi kiya 😏 tu hi rakh de";
+            response = "Mera naam abhi aapne decide nahi kiya 😏 ";
         }
 
         else if (
-            userText.includes("kya kar rahe ho")
+            userText.includes("kya kar rahe ho") ||
+            userText.includes("you doing?")
         ) {
             response = "Im waiting to help you 😎";
         }
 
         else if (
-            userText.includes("bore ho raha hu")
+            userText.includes("bore ho raha hu") ||
+            userText.includes("Im getting bore?")
         ) {
             response = "Chal ek joke sunata hu 😂 ya game khelenge?";
         }
