@@ -94,6 +94,7 @@
      background: #444;
      margin-right: auto;
      border-radius: 50px;
+     padding:20px;
  }
 
  @media (max-width: 576px) {
