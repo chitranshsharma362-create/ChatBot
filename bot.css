@@ -58,6 +58,7 @@
      display: flex;
      flex-wrap: wrap;
      padding: 10px;
+     position:fixed;
      margin-right: 320px;
      margin-bottom: 70px;
  }
