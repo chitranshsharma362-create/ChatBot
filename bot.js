@@ -84,19 +84,19 @@ function botReply(userText) {
         let response;
 
         if (userText.includes("hi") || userText.includes("hello")) {
-            response = "Hello bhai 😄";
+            response = "Hello , How may i help you?";
         } else if (
             userText.includes("kaise ho") ||
             userText.includes("how are you")
         ) {
-            response = "Main mast hu 😎 tu bata.";
+            response = "I'm good , What about you?.";
 
         } else if (userText.toLowerCase().includes("time")) {
             response = "Abhi time hua hai : " + new Date().toLocaleTimeString();
         } else if (userText.toLowerCase().includes("date")) {
             response = "Aaj ki Date hai : " + new Date().toLocaleDateString();
         } else if (userText.includes("mausam") || userText.includes("weather")) {
-            response = "Aaj mausam mast hai 😄☀️";
+            response = "Aaj mausam kaafi acha  hai 😄";
         } else if (
             userText.includes("aaj ka din") ||
             userText.includes("din kaisa") ||
@@ -138,7 +138,7 @@ function botReply(userText) {
             userText.includes("tum kon ho") ||
             userText.includes("who are you?")
         ) {
-            response = "Main ek smart chatbot hu 😎 tera dost bhi keh sakta hai";
+            response = "Main ek smart chatbot hu 😎 apna friend bhi keh sakta hai";
         }
 
         else if (
@@ -151,7 +151,7 @@ function botReply(userText) {
             userText.includes("tum insaan ho") ||
             userText.includes("are you human")
         ) {
-            response = "Nahi bhai 😄 main AI hu, par feel bilkul human wali deta hu";
+            response = "Nahi 😄 main AI hu, par feel bilkul human wali deta hu";
         }
 
         else if (
@@ -163,7 +163,7 @@ function botReply(userText) {
         else if (
             userText.includes("kya kar rahe ho")
         ) {
-            response = "Bas tere messages ka wait kar raha tha 😎";
+            response = "Im waiting to help you 😎";
         }
 
         else if (
@@ -175,7 +175,7 @@ function botReply(userText) {
         else if (
             userText.includes("love you")
         ) {
-            response = "Arey bhai 😄 main bhi tujhe pasand karta hu ❤️";
+            response = "Arey 😄 main bhi tumhe pasand karta hu ❤️";
         }
 
         else if (
@@ -188,7 +188,7 @@ function botReply(userText) {
         else if (
             userText.includes("bye")
         ) {
-            response = "Bye bhai 👋 fir milte hain 😄";
+            response = "Bye👋 fir milte hain 😄";
         }
 
         reply.innerText = response;
